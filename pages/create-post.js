@@ -41,10 +41,13 @@ function CreatePost() {
   }, [])
 
   function onChange(e) {
+    console.log(e.target.value)
     setPost(() => ({ ...post, [e.target.name]: e.target.value }))
   }
 
-  async function createNewPost() {   
+  
+  async function createNewPost() {  
+    console.log("postss", post) 
     /* saves post to ipfs then anchors to smart contract */
     if (!title || !content) return
     const hash = await savePostToIpfs()
